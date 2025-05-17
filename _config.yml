@@ -1,17 +1,27 @@
-title: "jekyll-timeline - Source and Examples"
-description: This is a small group of html and css includes for Jekyll that lets you create a beautiful timeline.
-baseurl: "/ECE_510_Documentation" # the subpath of your site, e.g. /blog
-# url: "http://www.simple.gy/jekyll-timeline/" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: a-m-e-y
-permalink: /:title/
-host: 0.0.0.0 # allows external access
+---
+title: ECE 510 Documentation
+timezone: US/Pacific
+collections:
+  posts:
+    title: Posts
+    output: true
+  steps:
+    title: Steps
+    output: false
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: steps
+    values:
+      title:
+      date: 2016-09-01 00:00:00 -0700
 markdown: kramdown
-gems:
-  - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - "/README.md"
-  - "*.sass"
-# github:
-#   repositoryName: '/'
+highlighter: rouge
+lsi: false
+description: Documentation for ECE 510 HW For AI and ML
+baseurl: "/ECE_510_Documentation"
+url: https://a-m-e-y.github.io/
+color: "#f2f2f2"
