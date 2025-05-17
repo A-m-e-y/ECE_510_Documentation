@@ -2,8 +2,8 @@
 layout: base
 ---
 
-# jekyll-timeline
-## A timeline for your GitHub Pages that doesn't need plugins or JavaScript
+# ECE 510 Documentation
+## A timeline journal for Project and Weekly Challenges
 
 Source, and readme on [GitHub](https://github.com/A-m-e-y/ECE_510_Documentation).
 

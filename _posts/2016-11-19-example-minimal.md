@@ -1,13 +1,18 @@
 ---
-title:  "Example 1: Minimal Configuration"
+title:  "Project Timeline"
 layout: base
 
 exampleEvents:
 
-- name: 2015 until now
-  from: 2015-01-01
-  to: now # "now" is the only supported non-date keyword
-  description: A test event, running from `2014-01-01` until `now`
+- name: Week 1
+  from: 2025-04-01
+  to: 2025-04-07 # "now" is the only supported non-date keyword
+  description: A test event, running from `2025-04-01` until `now`
+
+- name: Week 2
+  from: 2025-04-08
+  to: 2025-04-14
+  description: A follow-up event for the first week
 
 - name: Another Event
   from: 2013-06-01
@@ -27,6 +32,6 @@ A minimal configuration example.
 {% include jekyll-timeline.html
    startYear=2010
    timelineHeight=600
-   col1Title="Column Title"
+   col1Title="  Column Title"
    col1Events=page.exampleEvents
 %}
