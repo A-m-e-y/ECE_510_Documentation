@@ -23,7 +23,7 @@
 <!-- Buttons -->
 <div style="text-align:center; margin-top: 40px;">
   <a href="index.html"><button>🔙 Back to Main Page</button></a>
-  <a href="Project_Journal.html"><button>🚀 Go to Project Journal</button></a>
+  <a href="project_journal.html"><button>🚀 Go to Project Journal</button></a>
 </div>
 
 <!-- Scroll to Top Button -->
@@ -47,7 +47,7 @@ window.onload = function () {
   document.body.appendChild(btn);
 
   // Load weekly-challenges.md
-  fetch('weekly-challenges.md')
+  fetch('weekly_challenges.md')
     .then(response => response.text())
     .then(text => {
       document.getElementById("content").innerHTML = marked.parse(text);
