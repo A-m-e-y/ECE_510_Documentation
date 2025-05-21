@@ -11,8 +11,8 @@ Here you'll find:
 
 ## 🧭 Navigate
 
-<a href="weekly_challenges.md"><button>📘 Weekly Challenges</button></a>
-<a href="project_journal.md"><button>🚀 Project Journal</button></a>
+<a href="weekly_challenges.html"><button>📘 Weekly Challenges</button></a>
+<a href="project_journal.html"><button>🚀 Project Journal</button></a>
 
 <script>
 window.onload = function () {
