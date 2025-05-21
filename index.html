@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Course Journal – Home</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: sans-serif; padding: 20px; text-align: center; }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>👋 Welcome to My Course Journal</h1>
+
+<p>
+Hi, I'm <strong>Your Name</strong>, and this is my journey through the course <em>"Course Title"</em> during Spring/Fall 2025.
+</p>
+
+<p>This site includes:</p>
+<ul style="display: inline-block; text-align: left;">
+  <li>📘 Weekly Challenge Logs</li>
+  <li>🚀 Project Journal Progress</li>
+</ul>
+
+<h2>🧭 Navigate</h2>
+<a href="weekly-challenges.html"><button>📘 Weekly Challenges</button></a>
+<a href="Project_Journal.html"><button>🚀 Project Journal</button></a>
+
+<!-- Scroll to Top Button -->
+<script>
+window.onload = function () {
+  const btn = document.createElement('button');
+  btn.innerHTML = '⬆️';
+  btn.style.position = 'fixed';
+  btn.style.bottom = '20px';
+  btn.style.right = '20px';
+  btn.style.padding = '10px 15px';
+  btn.style.border = 'none';
+  btn.style.borderRadius = '50%';
+  btn.style.backgroundColor = '#007acc';
+  btn.style.color = 'white';
+  btn.style.fontSize = '20px';
+  btn.style.cursor = 'pointer';
+  btn.title = 'Scroll to top';
+
+  btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.body.appendChild(btn);
+};
+</script>
+
+</body>
+</html>

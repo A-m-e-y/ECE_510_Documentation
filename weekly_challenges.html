@@ -1,24 +1,35 @@
-# 🗓️ Weekly Challenges
 
-Here I document the weekly challenges and what I learned each week.
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weekly Challenges</title>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #content { max-width: 800px; margin: auto; }
+    button {
+      margin: 10px 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
----
+<div id="content">Loading...</div>
 
-## Week 1 - Getting Started
-- ✅ Installed necessary tools
-- ✅ Completed onboarding challenge
+<!-- Buttons -->
+<div style="text-align:center; margin-top: 40px;">
+  <a href="index.html"><button>🔙 Back to Main Page</button></a>
+  <a href="Project_Journal.html"><button>🚀 Go to Project Journal</button></a>
+</div>
 
-## Week 2 - Deep Dive
-- 🛠️ Solved advanced problems
-- 🔗 [GitHub Repo](https://github.com/yourname/week2-challenges)
-
----
-
-<a href="index.md"><button>🔙 Back to Main Page</button></a>
-<a href="Project_Journal.md"><button>🚀 Go to Project Journal</button></a>
-
+<!-- Scroll to Top Button -->
 <script>
 window.onload = function () {
+  // Scroll to top button
   const btn = document.createElement('button');
   btn.innerHTML = '⬆️';
   btn.style.position = 'fixed';
@@ -32,9 +43,21 @@ window.onload = function () {
   btn.style.fontSize = '20px';
   btn.style.cursor = 'pointer';
   btn.title = 'Scroll to top';
-  btn.onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   document.body.appendChild(btn);
-}
+
+  // Load weekly-challenges.md
+  fetch('weekly-challenges.md')
+    .then(response => response.text())
+    .then(text => {
+      document.getElementById("content").innerHTML = marked.parse(text);
+    })
+    .catch(err => {
+      document.getElementById("content").innerHTML = "<p>⚠️ Failed to load content.</p>";
+      console.error(err);
+    });
+};
 </script>
+
+</body>
+</html>
