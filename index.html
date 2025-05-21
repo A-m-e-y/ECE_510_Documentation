@@ -3,8 +3,10 @@
 <head>
   <title>Course Journal – Home</title>
   <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
-    body { font-family: sans-serif; padding: 20px; text-align: center; }
+    body { font-family: sans-serif; padding: 20px; }
+    #content { max-width: 800px; margin: auto; }
     button {
       margin: 10px;
       padding: 10px 20px;
@@ -15,25 +17,18 @@
 </head>
 <body>
 
-<h1>👋 Welcome to My Course Journal</h1>
+<div id="content">Loading...</div>
 
-<p>
-Hi, I'm <strong>Your Name</strong>, and this is my journey through the course <em>"Course Title"</em> during Spring/Fall 2025.
-</p>
-
-<p>This site includes:</p>
-<ul style="display: inline-block; text-align: left;">
-  <li>📘 Weekly Challenge Logs</li>
-  <li>🚀 Project Journal Progress</li>
-</ul>
-
-<h2>🧭 Navigate</h2>
-<a href="weekly_challenges.html"><button>📘 Weekly Challenges</button></a>
-<a href="project_journal.html"><button>🚀 Project Journal</button></a>
+<!-- Buttons -->
+<div style="text-align:center; margin-top: 40px;">
+  <a href="weekly_challenges.html"><button>📘 Weekly Challenges</button></a>
+  <a href="project_journal.html"><button>🚀 Project Journal</button></a>
+</div>
 
 <!-- Scroll to Top Button -->
 <script>
 window.onload = function () {
+  // Scroll to Top button
   const btn = document.createElement('button');
   btn.innerHTML = '⬆️';
   btn.style.position = 'fixed';
@@ -47,9 +42,19 @@ window.onload = function () {
   btn.style.fontSize = '20px';
   btn.style.cursor = 'pointer';
   btn.title = 'Scroll to top';
-
   btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   document.body.appendChild(btn);
+
+  // Load index.md
+  fetch('index.md')
+    .then(response => response.text())
+    .then(text => {
+      document.getElementById("content").innerHTML = marked.parse(text);
+    })
+    .catch(err => {
+      document.getElementById("content").innerHTML = "<p>⚠️ Failed to load content.</p>";
+      console.error(err);
+    });
 };
 </script>
 
