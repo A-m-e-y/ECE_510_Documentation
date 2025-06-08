@@ -100,7 +100,7 @@
 ### Quick Overview
 - Started to implement the pure software implementation of the project.
 - I studied and chose `cocotb` as the testbench framework for the project.
-- For detailed journal of the project, please refer to the [Project Journal](project_journal.md).
+- For detailed journal of the project, please refer to the [Project Journal](https://a-m-e-y.github.io/ECE_510_Documentation/project_journal.html).
 
 ---
 # 4. Week 4 -
@@ -159,3 +159,52 @@
 - Generated animation of the systolic array sorting process is available at this location in the README.md file - [Link](https://github.com/A-m-e-y/W05_C17_BubbleSort_Systolic_Array#visualization-of-a-systolic-array)
 
 
+# 6. Week 6 -
+
+## `Challenge #19`: Implement a binary LIF neuron
+### GitHub Repository
+- 🔗 GitHub Repo - [W06_C19_Binary_LIF_Neuron](https://github.com/A-m-e-y/W06_C19_Binary_LIF_Neuron)
+### Quick Overview
+- This project implements a binary leaky integrate-and-fire (LIF) neuron model.
+- The goals of the project are:
+    - Implement the binary LIF neuron model in Python.
+    - Simulate the neuron's response to various input stimuli.
+    - Analyze the neuron's behavior and performance characteristics.
+
+---
+# 7. Week 7 -
+## `Challenge #22`: Broadening your horizon about neuromorphic computing
+### GitHub Repository
+- 🔗 GitHub Repo - [W07_C22_Neuromorphic_Computing](https://github.com/A-m-e-y/W07_C22_Neuromorphic_Computing)
+### Quick Overview
+- This project explores the principles and applications of neuromorphic computing.
+- The goals of the project are:
+    - Understand the key concepts of neuromorphic computing.
+    - Implement a simple neuromorphic model using spiking neural networks.
+    - Analyze the performance and efficiency of the neuromorphic model compared to traditional approaches.
+
+---
+# 8. Week 8 -
+
+## `Challenge #24`: Run a simulation on the EBRAINS BrainScaleS-2 neuromorphic hardware
+### GitHub Repository
+- 🔗 GitHub Repo - [W08_C24_EBRAINS_BrainScaleS2](https://github.com/A-m-e-y/W08_C24_EBRAINS_BrainScaleS2)
+### Quick Overview
+- This project aims to run a simulation on the EBRAINS BrainScaleS-2 neuromorphic hardware.
+- The goals of the project are:
+    - Understand the architecture and programming model of the BrainScaleS-2 hardware.
+    - Implement a spiking neural network model for simulation on the hardware.
+    - Analyze the performance and efficiency of the simulation compared to traditional approaches.
+
+---
+# 9. Week 9 -
+
+## `Challenge #26`: BrainChip’s IP for Targeting AI Applications at the Edge
+### GitHub Repository
+- 🔗 GitHub Repo - [W09_C26_BrainChip](https://github.com/A-m-e-y/W09_C26_BrainChip)
+### Quick Overview
+- This project focuses on leveraging BrainChip’s intellectual property (IP) for edge AI applications.
+- The goals of the project are:
+    - Explore the capabilities of BrainChip’s Akida architecture.
+    - Implement a sample application using the Akida SDK.
+    - Evaluate the performance and efficiency of the application on edge devices.
