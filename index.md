@@ -1,10 +1,10 @@
 # 👋 Welcome to My Course Journal
 
-Hi, I'm **Your Name**, and this is my learning journey for the course _"Course Title"_ taken during **Spring/Fall 2025**.
+Hi, I'm **Amey Kulkarni**, and this is my weekly journey for the course _"ECE 510: HW For AI & ML"_ taken during **Spring 2025** term.
 
-Here you'll find:
+Here you'll find Documentation for:
 
-- 📘 Weekly Challenge Logs  
-- 🚀 Project Journal Progress  
+- ➡️ Weekly Challenges
+- ➡️ Project Journal Progress
 
 ---
