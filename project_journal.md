@@ -2,6 +2,39 @@
 
 This section tracks the progress of my course project, week-by-week.
 
+## Project Overview
+
+| Task | Success? | Comments |
+|:------|:----------:|:----------|
+| Cocotb Sim     |  ✅ Yes        |  Complete H/W <> S/W co-simulation is working |
+| OpenLane-2 Synthesis | ❌ No        | OpenLane-2 doesn't support SystemVerilog constructs |
+|  |         | Please check here for further details - [Link]() |
+| Synopsys Design Compiler Synthesis | ✅ Yes        | Synthesis is successful with all the important metrics |
+|  |     | Check here for all the details of Synthesis - [Link]() |
+| Vivado Synthesis | ✅ Yes        | Synthesis is successful with all the important metrics |
+|  |     | Check here for all the details of Synthesis - [Link]() |
+
+## Synthesis Results
+
+| Metric | Result | Comments |
+|:------|:----------:|:----------:|
+| Area | 0 | 0 |
+| Transistor Count | 0 | 0 |
+| Power | 0 | 0 |
+| Timing | 0 | 0 |
+
+**Table of Contents**
+- [Week 1](#week-1--)
+- [Week 2](#week-2--)
+- [Week 3](#week-3--)
+- [Week 4](#week-4--)
+- [Week 5](#week-5--)
+- [Week 6](#week-6--)
+- [Week 7](#week-7--)
+- [Week 8](#week-8--)
+- [Week 9](#week-9--)
+
+
 ---
 
 ## Week 1 -
@@ -28,6 +61,8 @@ This section tracks the progress of my course project, week-by-week.
     - Also, I later realized that someone else had taken a similar topic for the project, so I decided to pivot and change my topic.
     - Hence, I decided to change my project topic to "CNN Digit Recognizor for 240x240 Images".
 
+---
+
 ## Week 3 -
 - This week, I started working on the new project topic "CNN Digit Recognizor for 240x240 Images".
 - I started by creating a new GitHub repo for this project -
@@ -50,6 +85,8 @@ This section tracks the progress of my course project, week-by-week.
 - So I decided to create my own dataset for 240x240 images.
 - I tried to scale up the MNIST dataset from 28x28 to 240x240 images, but it didn't work at all.
 
+---
+
 ## Week 4 -
 - This week, I focused on creating my own dataset for 240x240 images.
 - I asked Professor in the class about this and he suggested me to create my own images for this and tamper with the created image to get more images.
@@ -70,6 +107,8 @@ This section tracks the progress of my course project, week-by-week.
 - This script can generate given number of images for each digit from 0-9.
 - This gave me a dataset of 240x240 images for each digit from 0-9.
 - I then used this dataset to train the CNN model using pure Python code and NumPy.
+
+---
 
 ## Week 5 -
 - This week, I continued to profile the CNN model for 240x240 images.
@@ -95,6 +134,8 @@ This section tracks the progress of my course project, week-by-week.
 - I tested this MAC unit with cocotb extensively to gain some confidence that it works as expected.
 - So basically, I was able to implement a fully functional IEEE-754 compliant 32-bit Floating Point MAC unit written in pure Synthesizable Verilog, with a fully automated testbench and software verification pipeline.
 
+---
+
 ## Week 6 -
 - After successfully implementing the Floating Point MAC unit last week, I started working on taking this MAC unit further.
 - I started implementing an FSM which can take a 1D vector of Floating Point numbers and perform the MAC operation on it.
@@ -111,6 +152,8 @@ This section tracks the progress of my course project, week-by-week.
 - Tetsing involved generating random 1D vectors of Floating Point numbers and passing them to the Dot Product HW Accelerator. The output is then compared with the expected output calculated using NumPy in Software and output returned by the Hardware.
 - I tested this Dot Product HW Accelerator with cocotb extensively to gain some confidence that it works as expected.
 
+---
+
 ## Week 7 -
 - After successfully implementing the Dot Product HW Accelerator last week, I started working on taking this further.
 - Since my goal is to multiply 2 2D matrices, I started to write an FSM which can take a 2D matrix of Floating Point numbers and perform the dot product operation on it.
@@ -122,6 +165,8 @@ This section tracks the progress of my course project, week-by-week.
 - To verify the generated results, I created a Python script `test_matrix_mul.py` to test the produced output with Software Multiplication using NumPy.
 - I struggled a lot with the FSM design and the Verilog code, I tried multiple LLMs to vibe-code this FSM, but it was failing miserably to do so.
 - After extensive waveform analysis and debugging, I was able to implement the Matrix Dot Product engine in the end.
+
+---
 
 ## Week 8 -
 - After successfully implementing the Matrix Dot Product HW Accelerator last week, I started working on taking this further.
@@ -146,6 +191,8 @@ This section tracks the progress of my course project, week-by-week.
 - The testing script can test full SPI roundtrip by sending 32 bit hex data and receiving 32 bit hex data from the dut. Then it cross-verifies the received data with the expected data.
 - This repo also has the `cocotb` implementation for the SPI communication, where I have moved the master to `cocotb` and kept slave in `verilog`.
 - I tested this SPI implementation with cocotb extensively to gain some confidence that it works as expected.
+
+---
 
 ## Week 9 -
 - After successfully implementing the SPI communication last week, I started to integrate the SPI communication with the Matrix Dot Product HW Accelerator.
