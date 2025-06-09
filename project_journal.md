@@ -87,10 +87,13 @@ This section tracks the progress of my course project, week-by-week.
 - I created a new GitHub repo for this project -
 - 🔗 GitHub Repo - [Floating_Point_MAC_HW_Accelerator](https://github.com/A-m-e-y/Floating_Point_MAC_HW_Accelerator)
 - Detailed documentation for this project is available in the README.md file of this GitHub repo.
+- I struggled a lot with the verilog code for this MAC unit, I tried multiple LLMs to vibe-code this MAC unit, but it was failing miserably to do so.
+- So with lot of trial and error, and taking inspiration from GitHub repos, I was able to implement the MAC unit in pure Synthesizable Verilog in the end.
+- I took heavy inspiration from the work of hankshyu's GitHub repo - [Link](https://github.com/hankshyu/RISC-V_MAC.git).
 - I also implemented the testbench for this MAC unit using Verilog and extensively tested it.
 - Then I created a Python script to test the MAC unit using `cocotb` and `iverilog`.
 - I tested this MAC unit with cocotb extensively to gain some confidence that it works as expected.
--- So basically, I was able to implement a fully functional IEEE-754 compliant 32-bit Floating Point MAC unit written in pure Synthesizable Verilog, with a fully automated testbench and software verification pipeline.
+- So basically, I was able to implement a fully functional IEEE-754 compliant 32-bit Floating Point MAC unit written in pure Synthesizable Verilog, with a fully automated testbench and software verification pipeline.
 
 ## Week 6 -
 - After successfully implementing the Floating Point MAC unit last week, I started working on taking this MAC unit further.
@@ -109,3 +112,72 @@ This section tracks the progress of my course project, week-by-week.
 - I tested this Dot Product HW Accelerator with cocotb extensively to gain some confidence that it works as expected.
 
 ## Week 7 -
+- After successfully implementing the Dot Product HW Accelerator last week, I started working on taking this further.
+- Since my goal is to multiply 2 2D matrices, I started to write an FSM which can take a 2D matrix of Floating Point numbers and perform the dot product operation on it.
+- I created a new GitHub repo for this project -
+- 🔗 GitHub Repo - [Matrix_Dot_Product_HW_Accelerator](https://github.com/A-m-e-y/Matrix_Dot_Product_HW_Accelerator)
+- Detailed documentation for this project is available in the README.md file of this GitHub repo.
+- This Matrix Dot Product HW Accelerator can take 2 2D matrices of Floating Point numbers (called Patch and Filter) and perform the dot product operation on it.
+- Here, my goal was to write working Verilog code, so I developed the RTL and verilog testbench to extensively test it.
+- To verify the generated results, I created a Python script `test_matrix_mul.py` to test the produced output with Software Multiplication using NumPy.
+- I struggled a lot with the FSM design and the Verilog code, I tried multiple LLMs to vibe-code this FSM, but it was failing miserably to do so.
+- After extensive waveform analysis and debugging, I was able to implement the Matrix Dot Product engine in the end.
+
+## Week 8 -
+- After successfully implementing the Matrix Dot Product HW Accelerator last week, I started working on taking this further.
+- I tried t integrate `cocotb` with the Matrix Dot Product HW Accelerator.
+- I created a new GitHub repo for this project -
+- 🔗 GitHub Repo - [MatrixMul_cocotb](https://github.com/A-m-e-y/MatrixMul_cocotb)
+- Detailed documentation for this project is available in the README.md file of this GitHub repo.
+- This currently doesn't use any communication bus to transfer the matrices to dut. The matrix inputs are directly exposed as top level ports to the testbench.
+- Currently, this is not linked to the CNN model as well. My plan was to gain full confidence on the functionality of Matrix Multiplication happening in this engine.
+- After extensively testing this Matrix Dot Product HW Accelerator with cocotb, I was able to gain some confidence that it works as expected.
+- I tried adding some sort of communication bus to transfer the matrices to dut, so I created a new GitHub repo for this project -
+- 🔗 GitHub Repo - [Simple_UART_Setup_v1](https://github.com/A-m-e-y/Simple_UART_Setup_v1)
+- Since I wanted to take this project to FPGA, I wanted to use a simple UART setup to transfer the matrices to the dut.
+- My thought process was that since our LAB already has a UART setup, I can use that to transfer the matrices to the dut on FPGA.
+- But after talking with Professor, I realized that this is not the end goal of the project.
+- The end goal is to take the HW Accelerator though OpenLane-2 flow and generate the GDS file and not to run this on an FPGA.
+- Also, professor suggested to use `SPI` for the communication bus in the weekly codefest.
+- So I decided to pivot and change my approach to use `SPI` for the communication bus.
+- I created a new GitHub repo for this project -
+- 🔗 GitHub Repo - [W08_C25_SPI_for_CNN](https://github.com/A-m-e-y/W08_C25_SPI_for_CNN)
+- This repo contains the SPI implementation for sending 32 bit hex data to the dut.
+- The testing script can test full SPI roundtrip by sending 32 bit hex data and receiving 32 bit hex data from the dut. Then it cross-verifies the received data with the expected data.
+- This repo also has the `cocotb` implementation for the SPI communication, where I have moved the master to `cocotb` and kept slave in `verilog`.
+- I tested this SPI implementation with cocotb extensively to gain some confidence that it works as expected.
+
+## Week 9 -
+- After successfully implementing the SPI communication last week, I started to integrate the SPI communication with the Matrix Dot Product HW Accelerator.
+- I created a new GitHub repo for this project -
+- 🔗 GitHub Repo - [W09_C27_Project_Testing](https://github.com/A-m-e-y/W09_C27_Project_Testing)
+- Here, I faced some challenges while integrating the SPI communication with the Matrix Dot Product HW Accelerator.
+- Somehow, I faced an issue in the SPI loader module, where it as not passing correct data to the dut.
+- Somehow, it was missing the first bit of the data and sending the rest of the bits correctly. However, it was not quite clear that this was the issue as all the symptoms were pointing to the fact that MatrixMulEngine was producing wrong multiplication results.
+- Vibe-coding didn't help me much here, so I had to debug the code manually. All the LLMs were halucinating and not able to help me with the issue.
+- I had to get my hands dirty and debug the code manually by exporting the waveforms and carefully inspecting each and every step.
+- After extensive debugging, I was able to fix the issue and get the SPI communication working with the Matrix Dot Product HW Accelerator.
+- I tested this SPI communication with cocotb extensively to gain some confidence that it works as expected.
+- After this I was able to seemlessly integrate this with my CNN model.
+- I created a new GitHub repo for this project -
+- 🔗 GitHub Repo - [W09_C28_CNN_HW_Accelerator](https://github.com/A-m-e-y/W09_C28_CNN_HW_Accelerator)
+- This repo contains the CNN HW Accelerator which can take 240x240 images and perform the CNN operation on it.
+- When I tried to run the CNN model on the 240x240 images, I faced some challenges with the image size.
+- The matrix size was too large, size of matrix A was 57600 x 288 and B was 288 x 64.
+- The details of the CNN model with each image size is available in the README.md file of this GitHub repo.
+- So, I scaled down the image size to 28x28 and tried to run the CNN model on it.
+- I was able to run the CNN model on the 28x28 images and get the results with `cocotb`.
+- I tested this CNN HW Accelerator with cocotb extensively to gain some confidence that it works as expected and produces correct output.
+- Then I tried to synthesize the design using OpenLane-2 flow.
+- Here as well, the matrix size for 240x240 images was too large and it was not able to synthesize the design.
+- So, I scaled down the image size to 28x28 and tried to synthesize the design.
+- But I faced the next issue here, which is that my RTL is in SystemVerilog and OpenLane-2 flow doesn't support SystemVerilog.
+- So, I get ann error at the yosys step that it doesn't support my SystemVerilog constructs in the RTL.
+- For details of the error, please refer to this section in the README.md file of this GitHub repo - [Link] ().
+- I searched online for the solution, but I couldn't find anything useful.
+- There is no getting around the fact that OpenLane-2 is a community driven project and it doesn't support SystemVerilog.
+- I tried to make chatGPT to convert my SystemVerilog code to Verilog, but it was not able to do so.
+- Translating SystemVerilog to Verilog is a very complex task and it is not possible to do it within the timeline of this project.
+- So, I decided to use Synopsys Design Compiler to synthesize the design.
+- For details of the synthesis flow, please refer to this section in the README.md file of this GitHub repo - [Link] ().
+- I was able to synthesize the design using Synopsys Design Compiler and get the gate-level netlist with all the important metrics like *Area, Power, Timing and transistor count*.
