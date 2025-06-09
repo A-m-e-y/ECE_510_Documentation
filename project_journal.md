@@ -1,6 +1,9 @@
 # Project Journal
 
-This section tracks the progress of my course project, week-by-week.
+This section tracks the progress of my course project, week-by-week.  
+Detailed Project Report is available here - 
+<a href="Amey_CNN.pdf" target="_blank">Open the PDF</a>
+
 
 ## Project Overview
 

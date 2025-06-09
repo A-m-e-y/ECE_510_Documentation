@@ -26,6 +26,8 @@
     - 2 Layer Perceptron
     - Matrix Multiplication
 
+---
+
 # 2. Week 2 - 
 
 ## `Challenge #6` - Perceptron Logic Gate Visualizations:
@@ -64,6 +66,7 @@
 - Answered the Helmier's questions in the given word doc.
 - Started to implement the pure software implementation of the project.
 - For detailed journal of the project, please refer to the [Project Journal](project_journal.md).
+
 ---
 
 # 3. Week 3 -
@@ -130,6 +133,7 @@
 - All the interesting data and visualizations are shown at this location in README.md file - [Link](https://github.com/A-m-e-y/W04_C14_Fibonacci#-full-metrics-breakdown)
 
 ---
+
 # 5. Week 5 -
 
 ## `Challenge #16` - Benchmarking SAXPY with PyTorch:
@@ -158,6 +162,7 @@
     - Visualize and analyze performance using a log-scaled bar chart.
 - Generated animation of the systolic array sorting process is available at this location in the README.md file - [Link](https://github.com/A-m-e-y/W05_C17_BubbleSort_Systolic_Array#visualization-of-a-systolic-array)
 
+---
 
 # 6. Week 6 -
 
@@ -173,6 +178,7 @@
 
 ---
 # 7. Week 7 -
+
 ## `Challenge #22`: Broadening your horizon about neuromorphic computing
 ### GitHub Repository
 - 🔗 GitHub Repo - [W07_C22_Neuromorphic_Computing](https://github.com/A-m-e-y/W07_C22_Neuromorphic_Computing)
@@ -184,6 +190,7 @@
     - Analyze the performance and efficiency of the neuromorphic model compared to traditional approaches.
 
 ---
+
 # 8. Week 8 -
 
 ## `Challenge #24`: Run a simulation on the EBRAINS BrainScaleS-2 neuromorphic hardware
@@ -197,6 +204,7 @@
     - Analyze the performance and efficiency of the simulation compared to traditional approaches.
 
 ---
+
 # 9. Week 9 -
 
 ## `Challenge #26`: BrainChip’s IP for Targeting AI Applications at the Edge
