@@ -1,44 +1,97 @@
-# Project Journal
+# **CNN Digit Recognizer for Configurable Image Sizes**
 
-This section tracks the progress of my course project, week-by-week.  
+
 Detailed Project Report is available here - 
-<a href="Amey_CNN.pdf" target="_blank">Open the PDF</a>
-
-
-## Project Overview
-
-| Task | Success? | Comments |
-|:------|:----------:|:----------|
-| Cocotb Sim     |  ✅ Yes        |  Complete H/W <> S/W co-simulation is working |
-| OpenLane-2 Synthesis | ❌ No        | OpenLane-2 doesn't support SystemVerilog constructs |
-|  |         | Please check here for further details - [Link]() |
-| Synopsys Design Compiler Synthesis | ✅ Yes        | Synthesis is successful with all the important metrics |
-|  |     | Check here for all the details of Synthesis - [Link]() |
-| Vivado Synthesis | ✅ Yes        | Synthesis is successful with all the important metrics |
-|  |     | Check here for all the details of Synthesis - [Link]() |
-
-## Synthesis Results
-
-| Metric | Result | Comments |
-|:------|:----------:|:----------:|
-| Area | 0 | 0 |
-| Transistor Count | 0 | 0 |
-| Power | 0 | 0 |
-| Timing | 0 | 0 |
+<a href="Resources/Final_Project_Report.pdf" target="_blank">Open the PDF</a>
 
 **Table of Contents**
-- [Week 1](#week-1--)
-- [Week 2](#week-2--)
-- [Week 3](#week-3--)
-- [Week 4](#week-4--)
-- [Week 5](#week-5--)
-- [Week 6](#week-6--)
-- [Week 7](#week-7--)
-- [Week 8](#week-8--)
-- [Week 9](#week-9--)
+- [Project Overview](#project-overview)
+- [Synthesis Results](#synthesis-results)
+  - [Synopsys Design Compiler Results](#synopsys-design-compiler-results)
+  - [Vivado Synthesis Results](#vivado-synthesis-results)
+- [Acceleration Results](#acceleration-results)
+  - [For SPI](#for-spi)
+  - [For PCI-E](#for-pci-e)
+- [Project Journal](#project-journal)
+  - [Week 1](#week-1)
+  - [Week 2](#week-2)
+  - [Week 3](#week-3)
+  - [Week 4](#week-4)
+  - [Week 5](#week-5)
+  - [Week 6](#week-6)
+  - [Week 7](#week-7)
+  - [Week 8](#week-8)
+  - [Week 9](#week-9)
+  - [Week 10](#week-10)
 
 
 ---
+
+## Project Overview
+
+|Task|	Success?|	Comments|
+|:------|:----------:|:----------|
+|SW algorithm benchmark|	✅ Yes |	Benchmarked using ‘cProfile’ and ‘snakeviz’ module.
+|Designed, built, and tested a custom HW accelerator|	✅ Yes |	Designed MatrixMul_top.v DUT in Verilog.
+|Simulated HW and SW together as a System and it is working?|	✅ Yes |	Simulated the system together using ‘cocotb’ and getting functionally correct results similar to SW only flow.
+|Synthesized the RTL using OpenLane-2 Flow|	❌ No |	OpenLane-2 has limitations with System Verilog. Please read documentation for further details.
+|Synthesized the RTL using Synopsys Design Compiler|	✅ Yes |	Used Synopsys Design Compiler available on PSU servers to Synthesize design and generate results.
+|Synthesized the RTL using Vivado for FPGA|	✅ Yes |	Used Vivado to synthesize the design for Nexys4 board with Artix-7 FPGA.
+|Will test the design on FPGA in Summer Term.
+|Evaluated and benchmarked the entire System with SPI communication|	✅ Yes |	Results are shown in this Project Report.
+
+---
+
+## Synthesis Results
+
+### Synopsys Design Compiler Results
+
+|Metric|	Value|
+|:------|:----------:|
+|Timing – WNS|	Slack met with 30 ns clk i.e. 33.33 MHz|
+|Total Power|	51.4263 W|
+|Combinational area|	853694451.000000 μm2|
+|Buf/Inv area|	146932992.000000 μm2|
+|Non-combinational area|	830151216.000000 μm2|
+|Total cell area|	1683845667.000000 μm2|
+
+### Vivado Synthesis Results
+Target Device: Nexys 4 Board with Artix-7 FPGA
+|Metric|	Value|
+|:------|:----------:|
+|Timing – WNS|	0.124 (Timing met with clk period 50 ns i.e. 20 MHz)|
+|Total Power|	0.13 W|
+|Area – LUT|	5760 (9%)|
+|Area – DFF|	9995 (8%)|
+|Area – DSP|	1 (1%)|
+
+---
+
+## Acceleration Results
+Results are measured for 10x10 image size.
+For details on the calculation, please refer to the Project Report <a href="Resources/Final_Project_Report.pdf" target="_blank">here</a>.
+### For SPI
+<div align="center">
+  <img src="Resources/Acceleration_Results_SPI.png" alt="Acceleration Results SPI" style="max-width: 100%; height: auto; resize: both; overflow: auto;">
+</div>
+
+With SPI, HW is ***0.000014575x times slower than SW***.  
+i.e. With SPI, SW is ***68,594 times faster than HW***.
+
+### For PCI-E
+
+<div align="center">
+  <img src="Resources/Acceleration_Results_PCIE.png" alt="Acceleration Results PCI-E" style="max-width: 100%; height: auto; resize: both; overflow: auto;">
+</div>
+
+With PCI-E, HW is ***~20 times faster than SW***.
+
+---
+
+# Project Journal
+
+This section tracks the progress of my course project, week-by-week.  
+
 
 ## Week 1 -
 - This week didn't really involve any direct project work, instead I focused on completing the weekly challenge and getting familiar with profiling python code using `cProfile` and `snakeviz`.
@@ -180,7 +233,7 @@ Detailed Project Report is available here -
 - This currently doesn't use any communication bus to transfer the matrices to dut. The matrix inputs are directly exposed as top level ports to the testbench.
 - Currently, this is not linked to the CNN model as well. My plan was to gain full confidence on the functionality of Matrix Multiplication happening in this engine.
 - After extensively testing this Matrix Dot Product HW Accelerator with cocotb, I was able to gain some confidence that it works as expected.
-- I tried adding some sort of communication bus to transfer the matrices to dut, so I created a new GitHub repo for this project -
+- I tried adding some sort of communication bus to transfer the matrices to the dut, so I created a new GitHub repo for this project -
 - 🔗 GitHub Repo - [Simple_UART_Setup_v1](https://github.com/A-m-e-y/Simple_UART_Setup_v1)
 - Since I wanted to take this project to FPGA, I wanted to use a simple UART setup to transfer the matrices to the dut.
 - My thought process was that since our LAB already has a UART setup, I can use that to transfer the matrices to the dut on FPGA.
@@ -198,6 +251,7 @@ Detailed Project Report is available here -
 ---
 
 ## Week 9 -
+
 - After successfully implementing the SPI communication last week, I started to integrate the SPI communication with the Matrix Dot Product HW Accelerator.
 - I created a new GitHub repo for this project -
 - 🔗 GitHub Repo - [W09_C27_Project_Testing](https://github.com/A-m-e-y/W09_C27_Project_Testing)
@@ -223,11 +277,21 @@ Detailed Project Report is available here -
 - So, I scaled down the image size to 28x28 and tried to synthesize the design.
 - But I faced the next issue here, which is that my RTL is in SystemVerilog and OpenLane-2 flow doesn't support SystemVerilog.
 - So, I get ann error at the yosys step that it doesn't support my SystemVerilog constructs in the RTL.
-- For details of the error, please refer to this section in the README.md file of this GitHub repo - [Link] ().
+- For details of the error, please refer to this section in the README.md file of this GitHub repo - [Link](https://github.com/A-m-e-y/CNN_hand_written_digit/blob/main/OpenLane_2_run/openlane_clean.log).
 - I searched online for the solution, but I couldn't find anything useful.
 - There is no getting around the fact that OpenLane-2 is a community driven project and it doesn't support SystemVerilog.
 - I tried to make chatGPT to convert my SystemVerilog code to Verilog, but it was not able to do so.
 - Translating SystemVerilog to Verilog is a very complex task and it is not possible to do it within the timeline of this project.
 - So, I decided to use Synopsys Design Compiler to synthesize the design.
-- For details of the synthesis flow, please refer to this section in the README.md file of this GitHub repo - [Link] ().
+- For details of the synthesis flow, please refer to this section in the README.md file of this GitHub repo - [Link](https://github.com/A-m-e-y/CNN_hand_written_digit/blob/main/dc_run/dc_v2.log).
 - I was able to synthesize the design using Synopsys Design Compiler and get the gate-level netlist with all the important metrics like *Area, Power, Timing and transistor count*.
+
+---
+## Week 10 -
+
+- This week, I focused on documenting the project and preparing the final report.
+- I created a detailed project report which includes the project overview, synthesis results, acceleration results and project journal.
+- I also spent time on understanding the synthesis results and acceleration results and did the important acceleration timing calculations.
+- I created a separate repo for the project report -
+- 🔗 GitHub Repo - [ECE_510_Documentation](https://github.com/A-m-e-y/ECE_510_Documentation)
+- I also learnt how to use GitHub Pages to create a basic HTML and Markdown based website for hosting project and weekly challenges documentation.
