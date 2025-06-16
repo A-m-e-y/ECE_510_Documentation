@@ -7,6 +7,47 @@
 
 ## 1. Week 1
 
+### Challenge #1 - Beyond CMOS 2023
+#### Objective
+- Go to the IEEE International Roadmap for Devices and Systems (IRDS) website (https://irds.ieee.org) and browse through the “Beyond CMOS” 2023 update roadmap to get a sense of the variety of devices that are being considered for beyond Moore technologies: https://irds.ieee.org/images/files/pdf/2023/2023IRDS_BC.pdf
+#### Learnings
+<details>
+      <summary>Click to expand</summary>
+      
+- Below are some key takeaways from the 2023 “Beyond CMOS” roadmap (IRDS), highlighting the breadth of technologies being explored beyond traditional Moore-scaling:
+- **Beyond Moore Focus**  
+  - Exploring alternatives to CMOS scaling using new device physics, materials, and architectures.
+
+- **Emerging Memory Technologies**  
+  - **STT-MRAM**, **ReRAM**, **FeFET**, and **FTJ** are leading non-volatile memory candidates.  
+  - Also includes Mott-transition and polymer-based memory concepts.
+
+- **New Logic Devices**  
+  - Spintronics, straintronics, and magnetics offer potential for energy-efficient logic.  
+  - Focus on non-charge-based switching mechanisms.
+
+- **Architectural Co-Design**  
+  - Devices designed in parallel with systems for neuromorphic and in-memory computing.  
+  - Supports unconventional, brain-inspired architectures.
+
+- **Alternative Computing Models**  
+  - Emphasis on analog, neural, and non-Von Neumann paradigms for better parallelism and efficiency.
+
+- **Advanced Materials Integration**  
+  - Use of TMDCs, high-k dielectrics, and 3D stacking to support new device designs.
+
+- **Benchmarking and Readiness**  
+  - Each tech is evaluated for energy, performance, scalability, and manufacturability.
+
+- **Heterogeneous Integration**  
+  - Combining CMOS with new devices to enhance system capabilities (More-than-Moore).
+
+- **Manufacturing Challenges**  
+  - Focused on sub-2 nm scaling, new metrology tools, and reliable fabrication processes.
+</details>
+
+---
+
 ### Challenge #4 - Replicate the Johns Hopkins paper of a Spiking Neuron Array
 #### GitHub Repository
 - 🔗 GitHub Repo - [W01_C04_SNN](https://github.com/A-m-e-y/W01_C04_SNN)
@@ -171,9 +212,9 @@
 #### GitHub Repository
 - 🔗 GitHub Repo - [W06_C19_Binary_LIF_Neuron](https://github.com/A-m-e-y/W06_C19_Binary_LIF_Neuron)
 #### Quick Overview
-- This project implements a binary leaky integrate-and-fire (LIF) neuron model.
+- This project implements a binary leaky integrate-and-fire (LIF) neuron model in Verilog.
 - The goals of the project are:
-  - Implement the binary LIF neuron model in Python.
+  - Implement the binary LIF neuron model in Verilog.
   - Simulate the neuron's response to various input stimuli.
   - Analyze the neuron's behavior and performance characteristics.
 
@@ -188,22 +229,29 @@
 - This project explores the principles and applications of neuromorphic computing.
 - The goals of the project are:
   - Understand the key concepts of neuromorphic computing.
-  - Implement a simple neuromorphic model using spiking neural networks.
-  - Analyze the performance and efficiency of the neuromorphic model compared to traditional approaches.
+  - Read the paper Kudithipudi, D., Schuman, C., Vineyard, C.M. et al. Neuromorphic computing at scale. Nature 637, 801–812 (2025).
+  - Write a “blog” post which answers the following questions:
+    - The authors discuss several key features necessary for neuromorphic systems at scale (distributed hierarchy, sparsity, neuronal scalability, etc.). Which of these features do you believe presents the most significant research challenge, and why? How might overcoming this challenge transform the field?
+    - The article compares neuromorphic computing's development to the evolution of deep learning, suggesting it awaits its own "AlexNet moment." What specific technological or algorithmic breakthrough might trigger such a moment for neuromorphic computing? What applications would become feasible with such a breakthrough?
+    - The authors highlight the gap between hardware implementation and software frameworks in neuromorphic computing compared to traditional deep learning. Develop a proposal for addressing this gap, specifically focusing on how to create interoperability between different neuromorphic platforms.
+    - The review emphasizes the importance of benchmarks for neuromorphic systems. What unique metrics would you propose for evaluating neuromorphic systems that go beyond traditional performance measures like accuracy or throughput? How would you standardize these across diverse neuromorphic architectures?
+    - How might the convergence of emerging memory technologies (like memristors or phase-change memory) with neuromorphic principles lead to new computational capabilities not possible with traditional von Neumann architectures? What specific research directions seem most promising?.
 
 ---
 
 ## 8. Week 8
 
-### Challenge #24: Run a simulation on the EBRAINS BrainScaleS-2 neuromorphic hardware
+### Challenge #25: Building and co-simulating an SPI interface in Python and Verilog
 #### GitHub Repository
-- 🔗 GitHub Repo - [W08_C24_EBRAINS_BrainScaleS2](https://github.com/A-m-e-y/W08_C24_EBRAINS_BrainScaleS2)
+- 🔗 GitHub Repo - [W08_C25_SPI_for_CNN](https://github.com/A-m-e-y/W08_C25_SPI_for_CNN)
 #### Quick Overview
-- This project aims to run a simulation on the EBRAINS BrainScaleS-2 neuromorphic hardware.
+- This project aims to build and co-simulate an SPI interface in Python and Verilog.
 - The goals of the project are:
-  - Understand the architecture and programming model of the BrainScaleS-2 hardware.
-  - Implement a spiking neural network model for simulation on the hardware.
-  - Analyze the performance and efficiency of the simulation compared to traditional approaches.
+  - Understand the SPI protocol and its requirements.
+  - Implement the SPI interface in Verilog.
+  - Create a Python script to run the SPI master in cocotb.
+  - Co-simulate the Verilog and Python components in cocotb to verify the functionality.
+  - Benchmark the SPI interface performance to use the numbers in Project.
 
 ---
 
@@ -211,10 +259,23 @@
 
 ### Challenge #26: BrainChip’s IP for Targeting AI Applications at the Edge
 #### GitHub Repository
-- 🔗 GitHub Repo - [W09_C26_BrainChip](https://github.com/A-m-e-y/W09_C26_BrainChip)
+- 🔗 GitHub Repo - [W09_C26_BrainChip_Podcast](https://github.com/A-m-e-y/W09_C26_BrainChip_Podcast)
 #### Quick Overview
-- This project focuses on leveraging BrainChip’s intellectual property (IP) for edge AI applications.
+- This task focuses on Listening to the EETimes BrainChip podcast.
 - The goals of the project are:
-  - Explore the capabilities of BrainChip’s Akida architecture.
-  - Implement a sample application using the Akida SDK.
-  - Evaluate the performance and efficiency of the application on edge devices.
+  - Listen and understand the capabilities of BrainChip’s Akida architecture.
+  - Do a short write-up which compares the BrainChip approach to GPUs and other neuromorphic chips that we have seen in class.
+
+---
+
+## 10. Week 10
+
+### Challenge #28: Model and simulate a memristor
+#### GitHub Repository
+- 🔗 GitHub Repo - [W10_C28_Memristor](https://github.com/A-m-e-y/W10_C28_Memristor)
+#### Quick Overview
+- This task focuses on learning how to model and simulate a memristor in Python.
+- The goals of the project are:
+  - Understand the underlying principles of memristors and their behavior.
+  - Plot the I-V characteristics of a memristor.
+  - Implement a memristor model in Python and simulate its response to various frequencies.
